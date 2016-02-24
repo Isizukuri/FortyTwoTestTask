@@ -1,0 +1,34 @@
+[
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "admin", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2016-02-24T15:01:07.585Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$MXdefYzEHovT$j1KD6ozyLJZ3WMxMJfchuAcVorFgvv+7hsAwTrLfXqA=", 
+        "email": "admin@admin.com", 
+        "date_joined": "2016-02-24T15:01:07.585Z"
+    }
+},
+{
+    "pk": 1, 
+    "model": "contacts.contact", 
+    "fields": {
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque libero quam, vehicula eu porta eget, scelerisque sit amet felis. Donec lacinia erat ac risus mattis tempor. Vivamus ac libero consectetur turpis vehicula iaculis. Curabitur suscipit felis id ex fermentum pretium. Curabitur dictum arcu in molestie rutrum. Donec nibh diam, lobortis eleifend dignissim vehicula, lacinia sed orci. Aliquam sit amet maximus dui. Pellentesque rutrum magna eu placerat elementum. Phasellus interdum vehicula finibus. Duis et quam sapien. Proin non semper lectus, sed porttitor felis. Vivamus enim turpis, sollicitudin a efficitur non, dictum at risus. Suspendisse sit amet egestas neque. Duis nec tellus nec mauris tincidunt ultrices quis quis lorem. Vestibulum molestie justo varius, condimentum erat sit amet, luctus tellus. Nam euismod lacus eu consequat elementum. ", 
+        "first_name": "Olexandr", 
+        "last_name": "Pavliuk", 
+        "other_contacts": "Morbi semper nibh nec dolor bibendum suscipit. Donec ut tempus ipsum. Curabitur tellus ipsum, luctus vel porttitor sit amet, ultrices dapibus est. Nullam commodo, mi sit amet bibendum ultricies, nisl metus ultrices purus, a interdum quam urna fringilla dui. Maecenas quis velit sed sapien egestas interdum. Fusce eu congue purus, id eleifend dui. Proin pulvinar pulvinar mattis. Nulla commodo porttitor sagittis. Phasellus consectetur elit ut tristique ullamcorper. Donec rhoncus placerat elit, ultricies luctus massa tristique at. Pellentesque malesuada eget nulla id sodales. Morbi eget imperdiet sem, ut convallis orci. Duis euismod ornare enim, sit amet sodales justo. ", 
+        "skype": "norved.tetragramaton", 
+        "birth_date": "1987-06-19", 
+        "jabber": "nebo@khavr.com", 
+        "email": "ragnarok49@gmail.com"
+    }
+}
+]

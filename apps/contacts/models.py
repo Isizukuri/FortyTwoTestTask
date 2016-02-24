@@ -35,6 +35,13 @@ class Contact(models.Model):
         blank=True,
         )
 
+    skype = models.CharField(
+        max_length=40,
+        verbose_name=_('skype'),
+        null=True,
+        blank=True,
+        )
+
     bio = models.TextField(
         verbose_name=_('bio'),
         null=True,

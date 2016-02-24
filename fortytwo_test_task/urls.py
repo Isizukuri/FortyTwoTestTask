@@ -5,6 +5,7 @@ from apps.contacts import views as contact_views
 admin.autodiscover()
 
 urlpatterns = patterns(
+    '',
     # admin urls
     url(r'^admin/', include(admin.site.urls)),
     # contacts urls
