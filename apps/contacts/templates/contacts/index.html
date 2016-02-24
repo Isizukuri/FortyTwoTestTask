@@ -1,25 +1,30 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
 <div class='row'>
+{% if object %}
     <div class='col-sm-6'>
-        <p><span class='text-muted'>Name: </span>first_name</p>
-        <p><span class='text-muted'>Last name: </span>last_name</p>
-        <p><span class='text-muted'>Date of birth: </span>date_of_birth</p>
+        <p><span class='text-muted'>{% trans 'Name' %}: </span>{{ object.first_name }}</p>
+        <p><span class='text-muted'>{% trans 'Last name' %}: </span>{{ object.last_name}}</p>
+        <p><span class='text-muted'>{% trans 'Date of birth' %}: </span>{{ object.birth_date }}</p>
     </div>
     <div class='col-sm-6'>
-        <p><span class='text-muted'>Contacts: </span>contacts</p>
-        <p><span class='text-muted'>Email: </span>email</p>
-        <p><span class='text-muted'>Jabber: </span>jabber</p>
-        <p><span class='text-muted'>Skype: </span>skype</p>
+        <p><span class='text-muted'>{% trans 'Contacts' %}</p>
+        <p><span class='text-muted'>{% trans 'Email' %}: </span>{{ object.email }}</p>
+        <p><span class='text-muted'>{% trans 'Jabber' %}: </span>{{ object.jabber }}</p>
+        <p><span class='text-muted'>{% trans 'Skype' %}: </span>{{ object.skype }}</p>
     </div>
 </div>
 
 <div class='row'>
     <div class='col-sm-6'>
-        <p><span class='text-muted'>Bio: </span>bio</p>
+        <p><span class='text-muted'>{% trans 'Bio' %}: </span>{{ object.bio | linebreaks }}</p>
     </div>
     <div class='col-sm-6'>
-        <p><span class='text-muted'>Other contacts: </span>other contacts</p>
+        <p><span class='text-muted'>{% trans 'Other contacts' %}: </span>{{ object.other_contacts | linebreaks }}</p>
     </div>
 </div>
+{% else %}
+<p>{% trans 'No contact data.' %}</p>
+{% endif %}
 {% endblock %}

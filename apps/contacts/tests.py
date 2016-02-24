@@ -3,6 +3,16 @@ from django.test import TestCase, Client
 from apps.contacts.models import Contact
 
 
+class TextNoteModelTest(TestCase):
+    """Test for Contact model"""
+    def test_unicode_representation(self):
+        note = TextNote(first_name="Luke")
+        self.assertEqual(unicode(note), note.text)
+
+    def test_verbose_name_plural(self):
+        self.assertEqual(str(Contact._meta.verbose_name_plural), "contacts")
+
+
 class TestHomePage(TestCase):
     """Test for contacts homepage"""
     def setUp(self):
@@ -34,11 +44,11 @@ class TestHomePage(TestCase):
 
     def test_context_data(self):
         """..."""
-#        response.context['object_list'][0]
-        pass
+        test_object = response.context['object']
+        self.assertEqual(Contact.objects.first(), test_object)
 
     def test_no_text_notes(self):
-        """Test in case if there are no contact data""""
+        """Test in case if there are no contact data"""
         Contact.objects.all().delete()
         response = self.client.get(self.url)
         self.assertContains(response, 'No contact data.')

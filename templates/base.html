@@ -1,9 +1,10 @@
+{% load i18n %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}{% endblock title %}42-test-isizukuri</title>
+        <title>{% block title %}{% endblock title %}{% trans '42-test-isizukuri' %}</title>
 
         <meta http-equiv="X-UA-Compatible" content="chrome=IE7" />
 
@@ -21,7 +22,7 @@
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
         <div class="container">
         {% block header %}
-        <h3>42 Coffee Cups Test Assignment</h3>
+        <h3>{% trans '42 Coffee Cups Test Assignment' %}</h3>
         {% endblock %}
         {% block content %}{% endblock content %}
         </div>
@@ -29,7 +30,7 @@
     <!-- JS -->
         <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-1.12.1.min.js"</script>
-        <!--Bootstrap JS -->
+        <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <!-- Custom JS -->
     {% block extra_js %}{% endblock %}
