@@ -6,10 +6,12 @@ from apps.contacts.models import Contact
 class TextNoteModelTest(TestCase):
     """Test for Contact model"""
     def test_unicode_representation(self):
+        """..."""
         note = TextNote(first_name="Luke")
         self.assertEqual(unicode(note), note.text)
 
     def test_verbose_name_plural(self):
+        """..."""
         self.assertEqual(str(Contact._meta.verbose_name_plural), "contacts")
 
 
