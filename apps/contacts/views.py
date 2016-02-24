@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.views.generic.detail import DetailView
 
-# Create your views here.
+from .models import Contact
+
+
+class HomePageView(DetailView):
+    """CBV for homepage"""
+    template_name = 'contacts/index.html'
+    model = Contact
+
+    def get_object(self, queryset=None):
+        obj = Contact.objects.first()
+        return obj
