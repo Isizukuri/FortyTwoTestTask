@@ -1,6 +1,7 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
-from models import LastRequest
+from .models import LastRequest
 
 
 class TextNoteModelTest(TestCase):

@@ -29,8 +29,6 @@
         <ul class="nav nav-tabs">
             {% url "home" as home_url %}
             <li role="presentation" {% if request.path == home_url %} class="active" {% endif %}><a href="{% url "home" %}">{% trans "Home" %}</a></li>
-            {% url "last_requests" as last_requests_url %}
-            <li role="presentation" {% if request.path == last_requests_url %} class="active" {% endif %}><a href="{% url "last_requests" %}">{% trans "Last 10 Requests" %}</a></li>
 
         <!-- End NavBar -->
 
