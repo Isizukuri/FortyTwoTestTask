@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from models import TextNote, LastRequest
+from models import LastRequest
 
 
 class TextNoteModelTest(TestCase):
