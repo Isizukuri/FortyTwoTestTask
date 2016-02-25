@@ -1,5 +1,7 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.conf import settings
+
 
 from .models import LastRequest
 
@@ -43,3 +45,31 @@ class MiddlewareTest(TestCase):
             HTTP_X_REQUESTED_WITH='XMLHttpRequest',
         )
         self.assertEqual(LastRequest.objects.count(), 0)
+
+
+class RequestListViewTest(TestCase):
+    """Test for view, that displays last 10 requests"""
+    def test_status(self):
+        """..."""
+        response = self.client.get(reverse('last_requests'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_queryset_with_less_then_10_entries(self):
+        """..."""
+        for i in xrange(3):
+            response = self.client.get(reverse('last_requests'))
+        self.assertEqual(len(response.context['object_list']), 3)
+        self.assertQuerysetEqual(
+            response.context['object_list'],
+            map(repr, LastRequest.objects.all().order_by('-timestamp')[:10])
+        )
+
+    def test_queryset_with_more_then_10_entries(self):
+        """..."""
+        for i in xrange(25):
+            response = self.client.get(reverse('last_requests'))
+        self.assertEqual(len(response.context['object_list']), 10)
+        self.assertQuerysetEqual(
+            response.context['object_list'],
+            map(repr, LastRequest.objects.all().order_by('-timestamp')[:10])
+        )
