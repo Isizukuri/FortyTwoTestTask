@@ -12,10 +12,4 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     # contacts urls
     url(r'^$', contact_views.HomePageView.as_view(), name='home'),
-)
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
