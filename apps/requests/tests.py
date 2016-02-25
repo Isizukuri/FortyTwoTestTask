@@ -21,6 +21,7 @@ class TextNoteModelTest(TestCase):
 class MiddlewareTest(TestCase):
     """Test for custom middleware"""
     def test_common_requests(self):
+        """common middleware test"""
         for i in xrange(3):
             self.client.get(reverse('home'))
 
@@ -31,3 +32,14 @@ class MiddlewareTest(TestCase):
         )
         self.assertEqual(
             LastRequest.objects.all()[1].url, reverse('home'))
+
+    def test_excluded_requests(self):
+        """test middleware exclusions"""
+        self.client.get(reverse('admin:jsi18n'))
+        self.client.get(settings.MEDIA_URL)
+        self.client.get(settings.STATIC_URL)
+        self.client.get(
+            reverse('last_requests'),
+            HTTP_X_REQUESTED_WITH='XMLHttpRequest',
+        )
+        self.assertEqual(LastRequest.objects.count(), 0)
