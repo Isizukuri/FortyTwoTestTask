@@ -42,8 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Custom apps
-    'apps.contacts',
-    'apps.requests',
+    'contacts',
+    'requests',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'apps.requests.middlewares.RequestStoreMiddleware',
+    'requests.middlewares.RequestStoreMiddleware',
 )
 
 ROOT_URLCONF = 'fortytwo_test_task.urls'
