@@ -1,3 +1,5 @@
+import json
+
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.conf import settings
@@ -73,3 +75,17 @@ class RequestListViewTest(TestCase):
             response.context['object_list'],
             map(repr, LastRequest.objects.all().order_by('-timestamp')[:10])
         )
+
+    def test_ajax_response_without_request_entries(self):
+        response = self.client.get(
+            reverse('last_requests'), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(len(json.loads(response.content)), 1)
+        message = json.dumps({'error': 'There are no requests at all.'})
+        self.assertJSONEqual(message, response.content)
+
+    def test_ajax_response_with_10_entries(self):
+        for i in xrange(10):
+            self.client.get(reverse('home'))
+        response = self.client.get(
+            reverse('last_requests'), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+        self.assertEqual(len(json.loads(response.content)), 10)
