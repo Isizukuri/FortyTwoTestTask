@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
 
 
 class LastRequest(models.Model):
@@ -13,4 +12,4 @@ class LastRequest(models.Model):
             time=self.timestamp,
             url=self.url,
             method=self.method
-            )
+        )

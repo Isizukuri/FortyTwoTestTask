@@ -18,6 +18,6 @@ class RequestStoreMiddleware(object):
         last_request = LastRequest(
             url=request.META['PATH_INFO'],
             method=request.META['REQUEST_METHOD'],
-            )
+        )
         if not save_trigger:
             last_request.save()

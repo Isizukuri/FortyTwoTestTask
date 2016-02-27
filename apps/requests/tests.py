@@ -4,7 +4,6 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.conf import settings
 
-
 from .models import LastRequest
 
 
@@ -77,6 +76,7 @@ class RequestListViewTest(TestCase):
         )
 
     def test_ajax_response_without_request_entries(self):
+        """..."""
         response = self.client.get(
             reverse('last_requests'), HTTP_X_REQUESTED_WITH='XMLHttpRequest')
         self.assertEqual(len(json.loads(response.content)), 1)
@@ -84,6 +84,7 @@ class RequestListViewTest(TestCase):
         self.assertJSONEqual(message, response.content)
 
     def test_ajax_response_with_10_entries(self):
+        """..."""
         for i in xrange(10):
             self.client.get(reverse('home'))
         response = self.client.get(

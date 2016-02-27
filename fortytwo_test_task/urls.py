@@ -14,5 +14,5 @@ urlpatterns = patterns(
     url(r'^last_requests/$',
         requests_views.RequestListView.as_view(),
         name='last_requests'
-    ),
+        ),
 )
